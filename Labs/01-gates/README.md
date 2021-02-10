@@ -1,4 +1,4 @@
-###VHDL code
+### VHDL code
 ```vhdl
 architecture dataflow of gates is
 begin
@@ -11,8 +11,8 @@ begin
     
 end architecture dataflow;
 ```
-###Screenshot with simulated time waveforms
+### Screenshot with simulated time waveforms
 ![De Morgan's laws](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/01-gates/Images/Capture.PNG)
 
-###Link to my public EDA Playground example
+### Link to my public EDA Playground example
 https://www.edaplayground.com/x/WasR
