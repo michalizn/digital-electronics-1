@@ -11,5 +11,5 @@ begin
     
 end architecture dataflow;
 ```
-[logo]: /Images/Capture.PNG ":)")
+![logo](/Images/Capture.PNG)
 https://www.edaplayground.com/x/WasR
