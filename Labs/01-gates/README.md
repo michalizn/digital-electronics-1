@@ -11,5 +11,5 @@ begin
     
 end architecture dataflow;
 ```
-![De Morgans's Simulation] (https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/01-gates/Images/Capture.PNG ":)")
+[logo]: /Images/Capture.PNG ":)")
 https://www.edaplayground.com/x/WasR
