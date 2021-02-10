@@ -1,3 +1,5 @@
+## Verification of De Morgan's laws of function f(c,b,a).
+
 ### VHDL code
 ```vhdl
 architecture dataflow of gates is
@@ -16,3 +18,5 @@ end architecture dataflow;
 
 ### Link to my public EDA Playground example
 https://www.edaplayground.com/x/WasR
+
+## Verification of Distributive laws.
