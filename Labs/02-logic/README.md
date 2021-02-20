@@ -20,6 +20,6 @@
 | 15 | 1 1 | 1 1 | 0 | 1 | 0 |
 
 ## Karnaugh maps for all three functions
-
+![Karnaugh maps](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/02-logic/Images/maps.png)
 
 
