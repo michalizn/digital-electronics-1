@@ -22,4 +22,5 @@
 ## Karnaugh maps for all three functions
 ![Karnaugh maps](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/02-logic/Images/maps.png)
 
-
+## Equations of simplified SoP form of the "greater than" function and simplified PoS form of the "less than" function
+![Equations](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/02-logic/Images/Equations.png)
