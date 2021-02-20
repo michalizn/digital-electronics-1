@@ -28,3 +28,4 @@
 ![Equations](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/02-logic/Images/Equations.png)
 
 ### Link to my public EDA Playground example:
+https://www.edaplayground.com/x/vqJQ
