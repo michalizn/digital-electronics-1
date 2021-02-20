@@ -1,4 +1,5 @@
-## Completed 2-bit comparator truth table
+## 1. Preparation tasks
+# Completed 2-bit comparator truth table
 
 | **Dec. equivalent** | **B[1:0]** | **A[1:0]** | **B is greater than A** | **B equals A** | **B is less than A** |
 | :-: | :-: | :-: | :-: | :-: | :-: |
@@ -19,8 +20,9 @@
 | 14 | 1 1 | 1 0 | 1 | 0 | 0 |
 | 15 | 1 1 | 1 1 | 0 | 1 | 0 |
 
-## Karnaugh maps for all three functions
+## 2. A 2-bit comparator
+# Karnaugh maps for all three functions
 ![Karnaugh maps](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/02-logic/Images/maps.png)
 
-## Equations of simplified SoP form of the "greater than" function and simplified PoS form of the "less than" function
+# Equations of simplified SoP form of the "greater than" function and simplified PoS form of the "less than" function
 ![Equations](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/02-logic/Images/Equations.png)
