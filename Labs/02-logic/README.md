@@ -29,3 +29,16 @@
 
 ### Link to my public EDA Playground example:
 https://www.edaplayground.com/x/vqJQ
+
+## 2. A 4-bit binary comparator
+
+### Listing of VHDL architecture from design file
+
+
+### Listing of VHDL stimulus process from testbench file
+
+
+### Listing of simulator console output, i.e. with one reported error
+
+
+### Link to my public EDA Playground example:
