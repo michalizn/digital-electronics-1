@@ -33,7 +33,28 @@ https://www.edaplayground.com/x/vqJQ
 ## 2. A 4-bit binary comparator
 
 ### Listing of VHDL architecture from design file:
+```vhdl
+entity comparator_4bit is
+    port(
+        a_i           : in  std_logic_vector(4 - 1 downto 0);
+        b_i           : in  std_logic_vector(4 - 1 downto 0);
+        -- COMPLETE ENTITY DECLARATION
+        B_less_A_o     : out std_logic;       -- B is less than A
+        B_greater_A_o  : out std_logic;       -- B is greater than A
+        B_equals_A_o   : out std_logic        -- B is equal than A
+    );
+end entity comparator_4bit;
 
+------------------------------------------------------------------------
+-- Architecture body for 4-bit binary comparator
+------------------------------------------------------------------------
+architecture Behavioral of comparator_4bit is
+begin
+    B_less_A_o   <= '1' when (b_i < a_i) else '0';
+    B_greater_A_o <= '1' when (b_i > a_i) else '0';
+    B_equals_A_o <= '1' when (b_i = a_i) else '0';
+end architecture Behavioral;
+```
 
 ### Listing of VHDL stimulus process from testbench file:
 ```vhdl
@@ -56,7 +77,7 @@ begin
             B_equals_A_o  => s_B_equals_A,
             B_less_A_o    => s_B_less_A
         );
-```vhdl
+```
 
 ### Listing of simulator console output, i.e. with one reported error:
 
