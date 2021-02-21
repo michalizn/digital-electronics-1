@@ -138,10 +138,10 @@ end architecture testbench;
 
 ### Listing of simulator console output, i.e. with one reported error:
 
-[2021-02-21 11:27:19 EST] ghdl -i design.vhd testbench.vhd  && ghdl -m  tb_comparator_4bit && ghdl -r  tb_comparator_4bit   --vcd=dump.vcd && sed -i 's/^U/X/g; s/^-/X/g; s/^H/1/g; s/^L/0/g' dump.vcd / 
-analyze design.vhd /
-analyze testbench.vhd/
-elaborate tb_comparator_4bit/
+[2021-02-21 11:27:19 EST] ghdl -i design.vhd testbench.vhd  && ghdl -m  tb_comparator_4bit && ghdl -r  tb_comparator_4bit   --vcd=dump.vcd && sed -i 's/^U/X/g; s/^-/X/g; s/^H/1/g; s/^L/0/g' dump.vcd <br />
+analyze design.vhd <br />
+analyze testbench.vhd <br />
+elaborate tb_comparator_4bit <br />
 testbench.vhd:40:9:@0ms:(report note): Stimulus process started
 testbench.vhd:64:9:@400ns:(assertion error): Test failed for input combination: 1111, 1111
 testbench.vhd:69:9:@400ns:(report note): Stimulus process finished
