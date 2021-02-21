@@ -142,13 +142,13 @@ end architecture testbench;
 analyze design.vhd <br />
 analyze testbench.vhd <br />
 elaborate tb_comparator_4bit <br />
-testbench.vhd:40:9:@0ms:(report note): Stimulus process started
-testbench.vhd:64:9:@400ns:(assertion error): Test failed for input combination: 1111, 1111
-testbench.vhd:69:9:@400ns:(report note): Stimulus process finished
-Finding VCD file...
-./dump.vcd
-[2021-02-21 11:27:20 EST] Opening EPWave...
-Done
+testbench.vhd:40:9:@0ms:(report note): Stimulus process started <br />
+testbench.vhd:64:9:@400ns:(assertion error): Test failed for input combination: 1111, 1111 <br />
+testbench.vhd:69:9:@400ns:(report note): Stimulus process finished <br />
+Finding VCD file... <br />
+./dump.vcd <br />
+[2021-02-21 11:27:20 EST] Opening EPWave... <br />
+Done <br />
 
 ### Link to my public EDA Playground example:
 
