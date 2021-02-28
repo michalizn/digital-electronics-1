@@ -178,29 +178,29 @@ end architecture testbench;
 
 ## 3. A Vivado tutorial:
 
-1. Open Vivado and follow the picture
-![picture](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/03-vivado/Images/Capture1.PNG)
-2. Click "Next"
-3. Type name of your project
-![picture](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/03-vivado/Images/Capture2.PNG)
-4. Select RTL Project and then click on "Next"
-5. Click on "Create File" and type file name:
-![picture](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/03-vivado/Images/Capture3.PNG)
-6. Add constraints (optional)
-![picture](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/03-vivado/Images/Capture4.PNG)
-7. Select part or board
-![picture](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/03-vivado/Images/Capture5.PNG)
-8. "Finish"
-9. Click "Ok" and "Yes"
-![picture](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/03-vivado/Images/Capture6.PNG)
-10. To add a new Testbench file click on "File" and "Add sources"
-![picture](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/03-vivado/Images/Capture7.PNG)
-11. Select what you need. (constraints, design or simulation sources)
-12. Click on "Create File" and name it tb_example
-13. "Finish"
-14. Click "Ok" and "Yes"
-15. To run the Simulation open "Flow" -> "Run Simulation" -> "Run Behavioral Simulation"
-![picture](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/03-vivado/Images/Capture8.PNG)
-16. To cleanup generated files, close simulation window, right click to SIMULATION or Run Simulation option, and select **Reset Behavioral Simulation**.
-![picture](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/03-vivado/Images/Capture9.PNG)
+1. Open Vivado and follow the picture <br />
+![picture](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/03-vivado/Images/Capture1.PNG) <br />
+2. Click "Next" <br />
+3. Type name of your project <br />
+![picture](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/03-vivado/Images/Capture2.PNG) <br />
+4. Select RTL Project and then click on "Next" <br />
+5. Click on "Create File" and type file name: <br />
+![picture](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/03-vivado/Images/Capture3.PNG) <br />
+6. Add constraints (optional) <br />
+![picture](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/03-vivado/Images/Capture4.PNG) <br />
+7. Select part or board <br />
+![picture](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/03-vivado/Images/Capture5.PNG) <br />
+8. "Finish" <br />
+9. Click "Ok" and "Yes" <br />
+![picture](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/03-vivado/Images/Capture6.PNG) <br />
+10. To add a new Testbench file click on "File" and "Add sources" <br />
+![picture](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/03-vivado/Images/Capture7.PNG) <br />
+11. Select what you need. (constraints, design or simulation sources) <br />
+12. Click on "Create File" and name it tb_example <br />
+13. "Finish" <br />
+14. Click "Ok" and "Yes" <br />
+15. To run the Simulation open "Flow" -> "Run Simulation" -> "Run Behavioral Simulation" <br />
+![picture](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/03-vivado/Images/Capture8.PNG) <br />
+16. To cleanup generated files, close simulation window, right click to SIMULATION or Run Simulation option, and select **Reset Behavioral Simulation**. <br />
+![picture](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/03-vivado/Images/Capture9.png) <br />
 
