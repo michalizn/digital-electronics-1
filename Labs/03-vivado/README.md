@@ -192,11 +192,11 @@ end architecture testbench;
 ![picture](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/03-vivado/Images/Capture5.PNG)
 8. "Finish"
 9. Click "Ok" and "Yes"
-10. To add a new Testbench file click on "File" and "Add sources"
 ![picture](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/03-vivado/Images/Capture6.PNG)
+10. To add a new Testbench file click on "File" and "Add sources"
+![picture](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/03-vivado/Images/Capture7.PNG)
 11. Select what you need. (constraints, design or simulation sources)
 12. Click on "Create File" and name it tb_example
-![picture](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/03-vivado/Images/Capture7.PNG)
 13. "Finish"
 14. Click "Ok" and "Yes"
 15. To run the Simulation open "Flow" -> "Run Simulation" -> "Run Behavioral Simulation"
