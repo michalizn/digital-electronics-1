@@ -173,7 +173,7 @@ begin
 end architecture testbench;
 ```
 #### Screenshot with simulated time waveforms
-![time waveforms](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/02-logic/Images/Equations.png)
+![time waveforms](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/03-vivado/Images/Capture10.PNG)
 
 
 ## 3. A Vivado tutorial:
@@ -187,15 +187,16 @@ end architecture testbench;
 5. Click on "Create File" and type file name:
 ![picture](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/03-vivado/Images/Capture3.PNG)
 6. Add constraints (optional)
-7. Select part or board
 ![picture](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/03-vivado/Images/Capture4.PNG)
+7. Select part or board
+![picture](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/03-vivado/Images/Capture5.PNG)
 8. "Finish"
 9. Click "Ok" and "Yes"
 10. To add a new Testbench file click on "File" and "Add sources"
-![picture](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/03-vivado/Images/Capture5.PNG)
+![picture](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/03-vivado/Images/Capture6.PNG)
 11. Select what you need. (constraints, design or simulation sources)
 12. Click on "Create File" and name it tb_example
-![picture](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/03-vivado/Images/Capture6.PNG)
+![picture](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/03-vivado/Images/Capture7.PNG)
 13. "Finish"
 14. Click "Ok" and "Yes"
 15. To run the Simulation open "Flow" -> "Run Simulation" -> "Run Behavioral Simulation"
