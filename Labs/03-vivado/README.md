@@ -41,54 +41,165 @@
 ## 2. Two-bit wide 4-to-1 multiplexer:
 
 #### Listing of VHDL architecture from source file `mux_2bit_4to1.vhd`:
+```vhdl
+library ieee;
+use ieee.std_logic_1164.all;
 
-`library ieee;`
-`use ieee.std_logic_1164.all;`
 
-`entity mux_2bit_4to1 is`
-    `port(`
-        `a_i           : in  std_logic_vector(2 - 1 downto 0);`
-        `b_i           : in  std_logic_vector(2 - 1 downto 0);`
-        `c_i           : in  std_logic_vector(2 - 1 downto 0);`
-        `d_i           : in  std_logic_vector(2 - 1 downto 0);`
-        `sel_i         : in  std_logic_vector(2 - 1 downto 0);`    
+entity mux_2bit_4to1 is
+    port(
+        a_i           : in  std_logic_vector(2 - 1 downto 0);
+        b_i           : in  std_logic_vector(2 - 1 downto 0);
+        c_i           : in  std_logic_vector(2 - 1 downto 0);
+        d_i           : in  std_logic_vector(2 - 1 downto 0);
+        sel_i         : in  std_logic_vector(2 - 1 downto 0);    
         
-
         f_o           : out std_logic_vector(2 - 1 downto 0)     
     );
-`end entity mux_2bit_4to1;`
+end entity mux_2bit_4to1;
 
 
-`architecture Behavioral of mux_2bit_4to1 is`
-`begin`
+architecture Behavioral of mux_2bit_4to1 is
+begin
 
     f_o <= a_i when (sel_i = "00") else
            b_i when (sel_i = "01") else
            c_i when (sel_i = "10") else
            d_i;
 
-`end architecture Behavioral;`
+end architecture Behavioral;
+```
 
 #### Listing of VHDL stimulus process from testbench file `tb_mux_2bit_4to1.vhd`:
+```vhdl
+library ieee;
+use ieee.std_logic_1164.all;
+------------------------------------------------------------------------
+-- Entity declaration for testbench
+------------------------------------------------------------------------
+entity tb_mux_2bit_4to1 is
 
+end entity tb_mux_2bit_4to1;
+------------------------------------------------------------------------
+-- Architecture body for testbench
+------------------------------------------------------------------------
+architecture testbench of tb_mux_2bit_4to1 is
+
+    -- Local signals
+    signal s_a       : std_logic_vector(2 - 1 downto 0);
+    signal s_b       : std_logic_vector(2 - 1 downto 0);
+    signal s_c       : std_logic_vector(2 - 1 downto 0);
+    signal s_d       : std_logic_vector(2 - 1 downto 0);
+    signal s_sel     : std_logic_vector(2 - 1 downto 0);
+    
+    signal s_f       : std_logic_vector(2 - 1 downto 0);
+
+begin
+
+    uut_mux_2bit_4to1 : entity work.mux_2bit_4to1
+        port map(
+            a_i           => s_a,
+            b_i           => s_b,
+            c_i           => s_c,
+            d_i           => s_d,
+            sel_i         => s_sel,
+            
+            f_o           => s_f
+        );
+
+    --------------------------------------------------------------------
+    -- Data generation process
+    --------------------------------------------------------------------
+    p_stimulus : process
+    begin
+        -- Report a note at the begining of stimulus process
+        report "Stimulus process started" severity note;
+
+
+        -- First test values
+        s_d <= "00"; s_c <= "00"; s_b <= "00"; s_a <= "00";
+        s_sel <= "00"; wait for 100 ns;
+        
+        s_d <= "10"; s_c <= "01"; s_b <= "01"; s_a <= "00";
+        s_sel <= "00"; wait for 100 ns;
+        
+        s_d <= "10"; s_c <= "01"; s_b <= "01"; s_a <= "11";
+        s_sel <= "00"; wait for 100 ns;
+        
+        s_d <= "10"; s_c <= "01"; s_b <= "11"; s_a <= "11";
+        s_sel <= "00"; wait for 100 ns;
+        
+        s_d <= "00"; s_c <= "00"; s_b <= "00"; s_a <= "00";
+        s_sel <= "01"; wait for 100 ns;
+        
+        s_d <= "10"; s_c <= "01"; s_b <= "01"; s_a <= "00";
+        s_sel <= "01"; wait for 100 ns;
+        
+        s_d <= "10"; s_c <= "01"; s_b <= "01"; s_a <= "11";
+        s_sel <= "01"; wait for 100 ns;
+        
+        s_d <= "10"; s_c <= "01"; s_b <= "11"; s_a <= "11";
+        s_sel <= "01"; wait for 100 ns;
+        
+        s_d <= "00"; s_c <= "00"; s_b <= "00"; s_a <= "00";
+        s_sel <= "10"; wait for 100 ns;
+        
+        s_d <= "10"; s_c <= "01"; s_b <= "01"; s_a <= "00";
+        s_sel <= "10"; wait for 100 ns;
+        
+        s_d <= "10"; s_c <= "01"; s_b <= "01"; s_a <= "11";
+        s_sel <= "10"; wait for 100 ns;
+        
+        s_d <= "10"; s_c <= "01"; s_b <= "11"; s_a <= "11";
+        s_sel <= "10"; wait for 100 ns;
+        
+        s_d <= "00"; s_c <= "00"; s_b <= "00"; s_a <= "00";
+        s_sel <= "11"; wait for 100 ns;
+        
+        s_d <= "10"; s_c <= "01"; s_b <= "01"; s_a <= "00";
+        s_sel <= "11"; wait for 100 ns;
+        
+        s_d <= "10"; s_c <= "01"; s_b <= "01"; s_a <= "11";
+        s_sel <= "11"; wait for 100 ns;
+        
+        s_d <= "10"; s_c <= "01"; s_b <= "11"; s_a <= "11";
+        s_sel <= "11"; wait for 100 ns;
+
+
+        report "Stimulus process finished" severity note;
+        wait;
+    end process p_stimulus;
+
+end architecture testbench;
+```
+#### Screenshot with simulated time waveforms
+![time waveforms](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/02-logic/Images/Equations.png)
 
 
 ## 3. A Vivado tutorial:
 
 1. Open Vivado and follow the picture
+![picture](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/03-vivado/Images/Capture1.PNG)
 2. Click "Next"
 3. Type name of your project
+![picture](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/03-vivado/Images/Capture2.PNG)
 4. Select RTL Project and then click on "Next"
 5. Click on "Create File" and type file name:
+![picture](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/03-vivado/Images/Capture3.PNG)
 6. Add constraints (optional)
 7. Select part or board
+![picture](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/03-vivado/Images/Capture4.PNG)
 8. "Finish"
 9. Click "Ok" and "Yes"
 10. To add a new Testbench file click on "File" and "Add sources"
+![picture](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/03-vivado/Images/Capture5.PNG)
 11. Select what you need. (constraints, design or simulation sources)
 12. Click on "Create File" and name it tb_example
+![picture](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/03-vivado/Images/Capture6.PNG)
 13. "Finish"
 14. Click "Ok" and "Yes"
 15. To run the Simulation open "Flow" -> "Run Simulation" -> "Run Behavioral Simulation"
+![picture](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/03-vivado/Images/Capture8.PNG)
 16. To cleanup generated files, close simulation window, right click to SIMULATION or Run Simulation option, and select **Reset Behavioral Simulation**.
+![picture](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/03-vivado/Images/Capture9.PNG)
 
