@@ -13,7 +13,7 @@
 | 6        | off  | on   | K2   | AN6  |
 | 7        | off  | on   | U13  | AN7  |
 
-![pic] (https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/04-segment/Images/Capture1.PNG)
+![pic](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/04-segment/Images/Capture1.PNG)
 
 
 
@@ -157,7 +157,7 @@ end Behavioral;
 ```
 
 #### Screenshot with simulated time waveforms:
-![wafeforms] (https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/04-segment/Images/Capture.PNG)
+![wafeforms](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/04-segment/Images/Capture.PNG)
 
 #### Listing of VHDL code from source file `top.vhd`:
 ```vhdl
