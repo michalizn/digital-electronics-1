@@ -2,7 +2,7 @@
 
 #### Table with connection of 7-segment displays on Nexys A7 board:
 
-| Position | HIGH | LOW  | PIN  | T    |
+| Position | HIGH | LOW  | PIN  | AN    |
 | -------- | ---- | ---- | ---- | ---- |
 | 0        | off  | on   | J17  | AN0  |
 | 1        | off  | on   | J18  | AN1  |
