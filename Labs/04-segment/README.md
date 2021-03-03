@@ -21,4 +21,4 @@
 | E | 1110 | 0 | 1 | 1 | 0 | 0 | 0 | 0 |
 | F | 1111 | 0 | 1 | 1 | 1 | 0 | 0 | 0 |
 
-![https://lastminuteengineers.com/seven-segment-arduino-tutorial/](Images/7-Segment-Display-Number-Formation-Segment-Contol.png)
+![https://lastminuteengineers.com/seven-segment-arduino-tutorial/](https://github.com/tomas-fryza/Digital-electronics-1/blob/master/Labs/04-segment/Images/7-Segment-Display-Number-Formation-Segment-Contol.png)
