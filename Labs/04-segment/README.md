@@ -1,6 +1,6 @@
 ## 1. Preparation tasks:
 
-#### Truth table with connection of 7-segment displays on Nexys A7 board:
+#### Table with connection of 7-segment displays on Nexys A7 board:
 
 
 #### Decoder truth table for common anode 7-segment display
