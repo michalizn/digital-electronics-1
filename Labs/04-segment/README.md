@@ -11,7 +11,7 @@
 | 4 | 0100 | 1 | 0 | 0 | 1 | 1 | 0 | 0 |
 | 5 | 0101 | 0 | 1 | 0 | 0 | 1 | 0 | 0 |
 | 6 | 0110 | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
-| 7 | 0111 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| 7 | 0111 | 0 | 0 | 0 | 1 | 1 | 1 | 1 |
 | 8 | 1000 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | 9 | 1001 | 0 | 0 | 0 | 0 | 1 | 0 | 0 |
 | A | 1010 | 0 | 0 | 0 | 1 | 0 | 0 | 0 |
@@ -26,7 +26,45 @@
 ## 2. Seven-segment display decoder:
 
 #### Listing of VHDL architecture from source file `hex_7seg.vhd`:
+```vhdl
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
 
+entity hex_7seg is
+    Port ( 
+          hex_i : in  std_logic_vector(4 - 1 downto 0);
+          seg_o : out std_logic_vector(7 - 1 downto 0)
+          );
+end hex_7seg;
+
+architecture Behavioral of hex_7seg is
+
+begin
+--------------------------------------------------------------------
+    -- p_7seg_decoder:
+    -- A combinational process for 7-segment display decoder. 
+    -- Any time "hex_i" is changed, the process is "executed".
+    -- Output pin seg_o(6) corresponds to segment A, seg_o(5) to B, etc.
+    --------------------------------------------------------------------
+    p_7seg_decoder : process(hex_i)
+    begin
+        case hex_i is
+            when "0000" =>
+                seg_o <= "0000001";     -- 0
+            when "0001" =>
+                seg_o <= "1001111";     -- 1
+    
+            -- WRITE YOUR CODE HERE
+    
+            when "1110" =>
+                seg_o <= "0110000";     -- E
+            when others =>
+                seg_o <= "0111000";     -- F
+        end case;
+    end process p_7seg_decoder;
+
+end Behavioral;
+```
 #### Listing of VHDL stimulus process from testbench file `tb_hex_7seg.vhd`:
 
 #### Screenshot with simulated time waveforms:
