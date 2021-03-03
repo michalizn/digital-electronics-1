@@ -2,6 +2,8 @@
 
 #### Truth table with connection of 7-segment displays on Nexys A7 board:
 
+
+#### Decoder truth table for common anode 7-segment display
 | **Hex** | **Inputs** | **A** | **B** | **C** | **D** | **E** | **F** | **G** |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
 | 0 | 0000 | 0 | 0 | 0 | 0 | 0 | 0 | 1 |
@@ -27,16 +29,6 @@
 
 #### Listing of VHDL architecture from source file `hex_7seg.vhd`:
 ```vhdl
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-
-entity hex_7seg is
-    Port ( 
-          hex_i : in  std_logic_vector(4 - 1 downto 0);
-          seg_o : out std_logic_vector(7 - 1 downto 0)
-          );
-end hex_7seg;
-
 architecture Behavioral of hex_7seg is
 
 begin
@@ -104,27 +96,6 @@ end Behavioral;
 ```
 #### Listing of VHDL stimulus process from testbench file `tb_hex_7seg.vhd`:
 ```vhdl
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-
-entity tb_hex_7seg is
---  Port ( );
-end tb_hex_7seg;
-
-architecture Behavioral of tb_hex_7seg is
-
-    signal s_hex       : std_logic_vector(4 - 1 downto 0);
-    signal s_seg       : std_logic_vector(7 - 1 downto 0);
-
-begin
-    uut_hex_7seg : entity work.hex_7seg
-        port map(
-            hex_i           => s_hex,
-            seg_o           => s_seg
-            );
-    --------------------------------------------------------------------
--- Data generation process
---------------------------------------------------------------------
     p_stimulus : process
     begin
     -- Report a note at the begining of stimulus process
@@ -169,13 +140,46 @@ end process p_stimulus;
                
 end Behavioral;
 ```
+
 #### Screenshot with simulated time waveforms:
 ![wafeforms] ()
+
 #### Listing of VHDL code from source file `top.vhd`:
+```vhdl
+hex2seg : entity work.hex_7seg
+        port map(
+            hex_i    => SW,
+            seg_o(6) => CA,
+            seg_o(5) => CB,
+            seg_o(4) => CC,
+            seg_o(3) => CD,
+            seg_o(2) => CE,
+            seg_o(1) => CF,
+            seg_o(0) => CG
+        );
+```
 
 ## 3. LED(7:4) indicators:
 
 #### Truth table and listing of VHDL code for LEDs(7:4):
+| **Hex** | **Inputs** | **LED4** | **LED5** | **LED6** | **LED7** |
+| :-: | :-: | :-: | :-: | :-: | :-: |
+| 0 | 0000 | 1 | 0 | 0 | 0 |
+| 1 | 0001 | 0 | 0 | 1 | 1 |
+| 2 | 0010 | 0 | 0 | 0 | 1 |
+| 3 | 0011 | 0 | 0 | 1 | 0 |
+| 4 | 0100 | 0 | 0 | 0 | 1 |
+| 5 | 0101 | 0 | 0 | 1 | 0 |
+| 6 | 0110 | 0 | 0 | 0 | 0 |
+| 7 | 0111 | 0 | 0 | 1 | 0 |
+| 8 | 1000 | 0 | 0 | 0 | 1 |
+| 9 | 1001 | 0 | 0 | 1 | 0 |
+| A | 1010 | 0 | 1 | 0 | 0 |
+| b | 1011 | 0 | 1 | 0 | 0 |
+| C | 1100 | 0 | 1 | 0 | 0 |
+| d | 1101 | 0 | 1 | 0 | 0 |
+| E | 1110 | 0 | 1 | 0 | 0 |
+| F | 1111 | 0 | 1 | 0 | 0 |
 
 #### Screenshot with simulated time waveforms:
 
