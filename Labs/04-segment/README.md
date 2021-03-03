@@ -2,6 +2,21 @@
 
 #### Table with connection of 7-segment displays on Nexys A7 board:
 
+| Position | HIGH | LOW  | PIN  | T    |
+| -------- | ---- | ---- | ---- | ---- |
+| 0        | off  | on   | J17  | AN0  |
+| 1        | off  | on   | J18  | AN1  |
+| 2        | off  | on   | T9   | AN2  |
+| 3        | off  | on   | J14  | AN3  |
+| 4        | off  | on   | P14  | AN4  |
+| 5        | off  | on   | T14  | AN5  |
+| 6        | off  | on   | K2   | AN6  |
+| 7        | off  | on   | U13  | AN7  |
+
+![pic] ()
+
+
+
 
 #### Decoder truth table for common anode 7-segment display
 | **Hex** | **Inputs** | **A** | **B** | **C** | **D** | **E** | **F** | **G** |
