@@ -1,24 +1,3 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 03/03/2021 02:01:50 PM
--- Design Name: 
--- Module Name: top - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
-
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
@@ -86,15 +65,15 @@ begin
               '0' when ( SW = "0011") else 
               '0' when ( SW = "0101") else
               '0' when ( SW = "0111") else
-              '0' when ( SW = "1101") else
+              '0' when ( SW = "1001") else
               '1';
     
     -- Turn LED(7) on if input value is a power of two, ie 1, 2, 4, or 8
     -- WRITE YOUR CODE HERE
-    LED (7) <= '0' when ( SW = "0001") else
+    LED(7)  <= '0' when ( SW = "0001") else
                '0' when ( SW = "0010") else 
                '0' when ( SW = "0100") else
-               '0' when ( SW = "1010") else
+               '0' when ( SW = "1000") else
                '1';
 
 end Behavioral;

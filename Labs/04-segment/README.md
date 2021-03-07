@@ -2,16 +2,16 @@
 
 #### Table with connection of 7-segment displays on Nexys A7 board:
 
-| Position | HIGH | LOW  | PIN  | AN    |
-| -------- | ---- | ---- | ---- | ---- |
-| 0        | off  | on   | J17  | AN0  |
-| 1        | off  | on   | J18  | AN1  |
-| 2        | off  | on   | T9   | AN2  |
-| 3        | off  | on   | J14  | AN3  |
-| 4        | off  | on   | P14  | AN4  |
-| 5        | off  | on   | T14  | AN5  |
-| 6        | off  | on   | K2   | AN6  |
-| 7        | off  | on   | U13  | AN7  |
+| Position | HIGH | LOW  | PIN  | T    | V | OUT 7-SEG |
+| -------- | ---- | ---- | ---- | ---- | -------- | -------- |
+| 0        | off  | on   | J17, H15 | AN0  | 3,3V | CG, DP |
+| 1        | off  | on   | J18, L18 | AN1  | 3,3V | CE, CF |
+| 2        | off  | on   | T9, T11 | AN2  | 3,3V | CC, CD |
+| 3        | off  | on   | J14, P15 | AN3  | 3,3V | CA, CB |
+| 4        | off  | on   | P14, K13 | AN4  | 3,3V | CG, DP |
+| 5        | off  | on   | T14, K16 | AN5  | 3,3V | CE, CF |
+| 6        | off  | on   | K2, R10 | AN6  | 3,3V | CC, CD |
+| 7        | off  | on   | U13, T10 | AN7  | 3,3V | CA, CB |
 
 ![pic](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/04-segment/Images/Capture1.PNG)
 
@@ -179,22 +179,22 @@ hex2seg : entity work.hex_7seg
 #### Truth table and listing of VHDL code for LEDs(7:4):
 | **Hex** | **Inputs** | **LED4** | **LED5** | **LED6** | **LED7** |
 | :-: | :-: | :-: | :-: | :-: | :-: |
-| 0 | 0000 | 1 | 0 | 0 | 0 |
-| 1 | 0001 | 0 | 0 | 1 | 1 |
-| 2 | 0010 | 0 | 0 | 0 | 1 |
-| 3 | 0011 | 0 | 0 | 1 | 0 |
-| 4 | 0100 | 0 | 0 | 0 | 1 |
-| 5 | 0101 | 0 | 0 | 1 | 0 |
-| 6 | 0110 | 0 | 0 | 0 | 0 |
-| 7 | 0111 | 0 | 0 | 1 | 0 |
-| 8 | 1000 | 0 | 0 | 0 | 1 |
-| 9 | 1001 | 0 | 0 | 1 | 0 |
-| A | 1010 | 0 | 1 | 0 | 0 |
-| b | 1011 | 0 | 1 | 0 | 0 |
-| C | 1100 | 0 | 1 | 0 | 0 |
-| d | 1101 | 0 | 1 | 0 | 0 |
-| E | 1110 | 0 | 1 | 0 | 0 |
-| F | 1111 | 0 | 1 | 0 | 0 |
+| 0 | 0000 | 0 | 1 | 1 | 1 |
+| 1 | 0001 | 1 | 1 | 0 | 0 |
+| 2 | 0010 | 1 | 1 | 1 | 0 |
+| 3 | 0011 | 1 | 1 | 0 | 1 |
+| 4 | 0100 | 1 | 1 | 1 | 0 |
+| 5 | 0101 | 1 | 1 | 0 | 1 |
+| 6 | 0110 | 1 | 1 | 1 | 1 |
+| 7 | 0111 | 1 | 1 | 0 | 1 |
+| 8 | 1000 | 1 | 1 | 1 | 0 |
+| 9 | 1001 | 1 | 1 | 0 | 1 |
+| A | 1010 | 1 | 0 | 1 | 1 |
+| b | 1011 | 1 | 0 | 1 | 1 |
+| C | 1100 | 1 | 0 | 1 | 1 |
+| d | 1101 | 1 | 0 | 1 | 1 |
+| E | 1110 | 1 | 0 | 1 | 1 |
+| F | 1111 | 1 | 0 | 1 | 1 |
 
 ```vhdl
 library IEEE;
@@ -276,7 +276,7 @@ begin
                '1';
 
 end Behavioral;
-``` 
+```
 
 #### Screenshot with simulated time waveforms:
 ![wafeforms](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/04-segment/Images/Capture2.PNG)
