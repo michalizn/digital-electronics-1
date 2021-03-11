@@ -1,7 +1,7 @@
 ## 1. Preparation tasks
 
 #### Table with connection of push buttons on Nexys A7 board:
-The five pushbuttons arranged in a plus-sign configuration are “momentary” switches that normally generate a low output when they are at rest, and a high output only when they are pressed. The red pushbutton labeled “CPU RESET,” on the other hand, generates a high output when at rest and a low output when pressed.
+The five pushbuttons arranged in a plus-sign configuration are “momentary” switches that normally generate a low output when they are at rest, and a high output only when they are pressed.
 
 | BTN  | FPGA pin | Value when pressed | Value when not pressed | Voltage when they are pressed |
 | ---- | -------- | ------------------ | ---------------------- | ----------------------------- |
