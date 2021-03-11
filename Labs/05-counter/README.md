@@ -12,7 +12,7 @@ The five pushbuttons arranged in a plus-sign configuration are “momentary” s
 | BTNC | N17      | high               | low                    | 3.3V                          |
 
 
-![pic](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/05-counter/Images/n4r.PNG)
+![pic](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/05-counter/Images/n4r.png)
 
 #### Table with calculated values:
 | **Time interval** | **Number of clk periods** | **Number of clk periods in hex** | **Number of clk periods in binary** |
