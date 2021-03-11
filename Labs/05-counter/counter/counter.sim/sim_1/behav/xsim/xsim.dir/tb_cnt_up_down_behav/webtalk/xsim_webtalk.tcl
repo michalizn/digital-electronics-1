@@ -1,6 +1,6 @@
-webtalk_init -webtalk_dir C:/Users/micha/Documents/baranek/Digital-electronics/Digital-electronics-1/Labs/05-counter/counter/counter.sim/sim_1/behav/xsim/xsim.dir/tb_clock_enable_behav/webtalk/
+webtalk_init -webtalk_dir C:/Users/micha/Documents/baranek/Digital-electronics/Digital-electronics-1/Labs/05-counter/counter/counter.sim/sim_1/behav/xsim/xsim.dir/tb_cnt_up_down_behav/webtalk/
 webtalk_register_client -client project
-webtalk_add_data -client project -key date_generated -value "Wed Mar 10 13:31:31 2021" -context "software_version_and_target_device"
+webtalk_add_data -client project -key date_generated -value "Thu Mar 11 15:38:49 2021" -context "software_version_and_target_device"
 webtalk_add_data -client project -key product_version -value "XSIM v2020.2 (64-bit)" -context "software_version_and_target_device"
 webtalk_add_data -client project -key build_version -value "3064766" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_platform -value "WIN64" -context "software_version_and_target_device"
@@ -14,7 +14,7 @@ webtalk_add_data -client project -key target_package -value "not_applicable" -co
 webtalk_add_data -client project -key target_speed -value "not_applicable" -context "software_version_and_target_device"
 webtalk_add_data -client project -key random_id -value "98004f8f-b538-48e1-b87f-2cb0fd77ea17" -context "software_version_and_target_device"
 webtalk_add_data -client project -key project_id -value "7847aa6bb5dd4ca48a2e510bfaba6af2" -context "software_version_and_target_device"
-webtalk_add_data -client project -key project_iteration -value "3" -context "software_version_and_target_device"
+webtalk_add_data -client project -key project_iteration -value "4" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_name -value "Windows Server 2016 or Windows 10" -context "user_environment"
 webtalk_add_data -client project -key os_release -value "major release  (build 9200)" -context "user_environment"
 webtalk_add_data -client project -key cpu_name -value "Intel(R) Core(TM) i5-8259U CPU @ 2.30GHz" -context "user_environment"
@@ -27,6 +27,6 @@ webtalk_add_data -client xsim -key trace_waveform -value "true" -context "xsim\\
 webtalk_add_data -client xsim -key runtime -value "800 ns" -context "xsim\\usage"
 webtalk_add_data -client xsim -key iteration -value "0" -context "xsim\\usage"
 webtalk_add_data -client xsim -key Simulation_Time -value "0.01_sec" -context "xsim\\usage"
-webtalk_add_data -client xsim -key Simulation_Memory -value "6424_KB" -context "xsim\\usage"
-webtalk_transmit -clientid 2810627705 -regid "" -xml C:/Users/micha/Documents/baranek/Digital-electronics/Digital-electronics-1/Labs/05-counter/counter/counter.sim/sim_1/behav/xsim/xsim.dir/tb_clock_enable_behav/webtalk/usage_statistics_ext_xsim.xml -html C:/Users/micha/Documents/baranek/Digital-electronics/Digital-electronics-1/Labs/05-counter/counter/counter.sim/sim_1/behav/xsim/xsim.dir/tb_clock_enable_behav/webtalk/usage_statistics_ext_xsim.html -wdm C:/Users/micha/Documents/baranek/Digital-electronics/Digital-electronics-1/Labs/05-counter/counter/counter.sim/sim_1/behav/xsim/xsim.dir/tb_clock_enable_behav/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
+webtalk_add_data -client xsim -key Simulation_Memory -value "6456_KB" -context "xsim\\usage"
+webtalk_transmit -clientid 4082063699 -regid "" -xml C:/Users/micha/Documents/baranek/Digital-electronics/Digital-electronics-1/Labs/05-counter/counter/counter.sim/sim_1/behav/xsim/xsim.dir/tb_cnt_up_down_behav/webtalk/usage_statistics_ext_xsim.xml -html C:/Users/micha/Documents/baranek/Digital-electronics/Digital-electronics-1/Labs/05-counter/counter/counter.sim/sim_1/behav/xsim/xsim.dir/tb_cnt_up_down_behav/webtalk/usage_statistics_ext_xsim.html -wdm C:/Users/micha/Documents/baranek/Digital-electronics/Digital-electronics-1/Labs/05-counter/counter/counter.sim/sim_1/behav/xsim/xsim.dir/tb_cnt_up_down_behav/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
 webtalk_terminate

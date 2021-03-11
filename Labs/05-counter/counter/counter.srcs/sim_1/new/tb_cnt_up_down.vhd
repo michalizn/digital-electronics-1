@@ -59,11 +59,11 @@ begin
     p_reset_gen : process
     begin
         s_reset <= '0';
-        wait for 12 ns;
+        wait for 40 ns;
         
         -- Reset activated
         s_reset <= '1';
-        wait for 73 ns;
+        wait for 60 ns;
 
         s_reset <= '0';
         wait;
@@ -81,9 +81,11 @@ begin
         
         -- Change counter direction
         s_cnt_up <= '1';
-        wait for 380 ns;
+        wait for 200 ns;
         s_cnt_up <= '0';
-        wait for 220 ns;
+        wait for 200 ns;
+        s_cnt_up <= '1';
+        wait for 200 ns;
 
         -- Disable counting
         s_en     <= '0';
