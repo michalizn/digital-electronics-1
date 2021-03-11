@@ -1,4 +1,12 @@
+## 1. Preparation tasks
 
+#### Table with connection of push buttons on Nexys A7 board
+The five pushbuttons arranged in a plus-sign configuration are “momentary” switches that normally generate a low output when they are at rest, and a high output only when they are pressed. The red pushbutton labeled “CPU RESET,” on the other hand, generates a high output when at rest and a low output when pressed.
+
+
+![pic](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/05-counter/Images/n4r.PNG)
+
+#### Table with calculated values>
 | **Time interval** | **Number of clk periods** | **Number of clk periods in hex** | **Number of clk periods in binary** |
 | :-: | :-: | :-: | :-: |
 | 2&nbsp;ms | 200 000 | x"3_0d40" | b"0011_0000_1101_0100_0000" |
