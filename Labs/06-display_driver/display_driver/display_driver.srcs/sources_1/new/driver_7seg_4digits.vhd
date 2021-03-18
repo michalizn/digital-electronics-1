@@ -11,18 +11,22 @@ entity driver_7seg_4digits is
         clk     : in  std_logic;        -- Main clock
         reset   : in  std_logic;        -- Synchronous reset
         -- 4-bit input values for individual digits
-        data0_i : in  std_logic_vector(4 - 1 downto 0);
-        data1_i : in  std_logic_vector(4 - 1 downto 0);
-        data2_i : in  std_logic_vector(4 - 1 downto 0);
-        data3_i : in  std_logic_vector(4 - 1 downto 0);
+        data0_i : in  std_logic_vector(8 - 1 downto 0);
+        data1_i : in  std_logic_vector(8 - 1 downto 0);
+        data2_i : in  std_logic_vector(8 - 1 downto 0);
+        data3_i : in  std_logic_vector(8 - 1 downto 0);
+        data4_i : in  std_logic_vector(8 - 1 downto 0);
+        data5_i : in  std_logic_vector(8 - 1 downto 0);
+        data6_i : in  std_logic_vector(8 - 1 downto 0);
+        data7_i : in  std_logic_vector(8 - 1 downto 0);
         -- 4-bit input value for decimal points
-        dp_i    : in  std_logic_vector(4 - 1 downto 0);
+        dp_i    : in  std_logic_vector(8 - 1 downto 0);
         -- Decimal point for specific digit
         dp_o    : out std_logic;
         -- Cathode values for individual segments
         seg_o   : out std_logic_vector(7 - 1 downto 0);
         -- Common anode signals to individual displays
-        dig_o   : out std_logic_vector(4 - 1 downto 0)
+        dig_o   : out std_logic_vector(8 - 1 downto 0)
     );
 end entity driver_7seg_4digits;
 
@@ -34,9 +38,9 @@ architecture Behavioral of driver_7seg_4digits is
     -- Internal clock enable
     signal s_en  : std_logic;
     -- Internal 2-bit counter for multiplexing 4 digits
-    signal s_cnt : std_logic_vector(2 - 1 downto 0);
+    signal s_cnt : std_logic_vector(4 - 1 downto 0);
     -- Internal 4-bit value for 7-segment decoder
-    signal s_hex : std_logic_vector(4 - 1 downto 0);
+    signal s_hex : std_logic_vector(8 - 1 downto 0);
 
 begin
     --------------------------------------------------------------------
@@ -57,7 +61,7 @@ begin
     -- counter
     bin_cnt0 : entity work.cnt_up_down
         generic map(
-            g_CNT_WIDTH => 2
+            g_CNT_WIDTH => 4
         )
         port map(
             clk        =>     clk,  
@@ -82,28 +86,47 @@ begin
     -- selecting data for a single digit, a decimal point signal, and 
     -- switches the common anodes of each display.
     --------------------------------------------------------------------
-    p_mux : process(s_cnt, data0_i, data1_i, data2_i, data3_i, dp_i)
+    p_mux : process(s_cnt, data0_i, data1_i, data2_i, data3_i, data4_i, data5_i, data6_i, data7_i, dp_i)
     begin
         case s_cnt is
-            when "11" =>
+            when "0000" =>
+                s_hex <= data7_i;
+                dp_o  <= dp_i(7);
+                dig_o <= "00000111";
+
+            when "0001" =>
+                s_hex <= data6_i;
+                dp_o  <= dp_i(6);
+                dig_o <= "00001011";
+
+            when "0010" =>
+                s_hex <= data5_i;
+                dp_o  <= dp_i(5);
+                dig_o <= "00001101";
+
+            when "0011" =>
+                s_hex <= data4_i;
+                dp_o  <= dp_i(4);
+                dig_o <= "00001110";
+            when "0100" =>
                 s_hex <= data3_i;
                 dp_o  <= dp_i(3);
-                dig_o <= "0111";
+                dig_o <= "00000111";
 
-            when "10" =>
+            when "0101" =>
                 s_hex <= data2_i;
                 dp_o  <= dp_i(2);
-                dig_o <= "1011";
+                dig_o <= "00001011";
 
-            when "01" =>
+            when "0110" =>
                 s_hex <= data1_i;
                 dp_o  <= dp_i(1);
-                dig_o <= "1101";
+                dig_o <= "00001101";
 
             when others =>
                 s_hex <= data0_i;
                 dp_o  <= dp_i(0);
-                dig_o <= "1110";
+                dig_o <= "00001110";
         end case;
     end process p_mux;
 

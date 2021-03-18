@@ -18,14 +18,18 @@ architecture testbench of tb_driver_7seg_4digits is
         constant c_CNT_WIDTH         : natural := 2;
 
     --Local signals
-        signal s_data0_i           :  std_logic_vector(4 - 1 downto 0);
-        signal s_data1_i           :  std_logic_vector(4 - 1 downto 0);
-        signal s_data2_i           :  std_logic_vector(4 - 1 downto 0);
-        signal s_data3_i           :  std_logic_vector(4 - 1 downto 0);
-        signal s_dp_i              :  std_logic_vector(4 - 1 downto 0);
+        signal s_data0_i           :  std_logic_vector(8 - 1 downto 0);
+        signal s_data1_i           :  std_logic_vector(8 - 1 downto 0);
+        signal s_data2_i           :  std_logic_vector(8 - 1 downto 0);
+        signal s_data3_i           :  std_logic_vector(8 - 1 downto 0);
+        signal s_data4_i           :  std_logic_vector(8 - 1 downto 0);
+        signal s_data5_i           :  std_logic_vector(8 - 1 downto 0);
+        signal s_data6_i           :  std_logic_vector(8 - 1 downto 0);
+        signal s_data7_i           :  std_logic_vector(8 - 1 downto 0);
+        signal s_dp_i              :  std_logic_vector(8 - 1 downto 0);
         signal s_dp_o              :  std_logic;
         signal s_seg_o             :  std_logic_vector(7 - 1 downto 0);
-        signal s_dig_o             :  std_logic_vector(4 - 1 downto 0);
+        signal s_dig_o             :  std_logic_vector(8 - 1 downto 0);
                        
         signal s_clk_100MHz        : std_logic;
         signal s_reset             : std_logic;
@@ -39,6 +43,10 @@ begin
           data1_i        =>         s_data1_i,
           data2_i        =>         s_data2_i,
           data3_i        =>         s_data3_i,
+          data4_i        =>         s_data4_i,
+          data5_i        =>         s_data5_i,
+          data6_i        =>         s_data6_i,
+          data7_i        =>         s_data7_i,
           dp_i           =>         s_dp_i,   
           dp_o           =>         s_dp_o,   
           seg_o          =>         s_seg_o,  
@@ -83,12 +91,17 @@ begin
     p_stimulus : process
         begin
         report "Stimulus process started" severity note;
+        
+            s_data7_i     <=    "00000011";
+            s_data6_i     <=    "00000001";
+            s_data5_i     <=    "00000100";
+            s_data4_i     <=    "00000010";
+            s_data3_i     <=    "00000011";
+            s_data2_i     <=    "00000001";
+            s_data1_i     <=    "00000100";
+            s_data0_i     <=    "00000010";
             
-            s_data3_i     <=    "0011";
-            s_data2_i     <=    "0001";
-            s_data1_i     <=    "0100";
-            s_data0_i     <=    "0010";
-            s_dp_i        <=    "0111";
+            s_dp_i        <=    "00000111";
 
         report "Stimulus process finished" severity note;
         wait;
