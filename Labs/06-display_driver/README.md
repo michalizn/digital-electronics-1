@@ -2,7 +2,7 @@
 
 #### Timing diagram figure for displaying value 3.142:
 
-![pic]()
+![pic](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/06-display_driver/Images/Capture.PNG)
 
 ## 2. Display driver
 
@@ -136,7 +136,7 @@ end architecture testbench;
 ```
 #### Screenshot with simulated time waveforms; always display all inputs and outputs:
 
-![pic]()
+![pic](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/06-display_driver/Images/Capture1.PNG)
 
 #### Listing of VHDL architecture of the top layer:
 ```vhdl
