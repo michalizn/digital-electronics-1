@@ -149,7 +149,7 @@ p_stimulus : process
 ```
 
 #### Screenshot with simulated time waveforms; always display all inputs and outputs. The full functionality of the entities must be verified:
-![waveforms]()
+![waveforms](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/07-ffs/Images/Capture.PNG)
 
 ## 3. Flip-flops
 
@@ -502,16 +502,16 @@ p_stimulus : process
 
 #### Screenshot with simulated time waveforms; always display all inputs and outputs. The full functionality of the entities must be verified:
 ###### D FF arst
-![waveform]()
+![waveform](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/07-ffs/Images/Capture2.PNG)
 
 ###### D FF rst
-![waveform]()
+![waveform](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/07-ffs/Images/Capture4.PNG)
 
 ###### JK FF rst
-![waveform]()
+![waveform](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/07-ffs/Images/Capture3.PNG)
 
 ###### T FF rst
-![waveform]()
+![waveform](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/07-ffs/Images/Capture5.PNG)
 
 ## 4. Shift register
 
