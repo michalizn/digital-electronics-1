@@ -1,10 +1,6 @@
 Vivado Simulator 2020.2
 Time resolution is 1 ps
-Error: Assertion violation
-Time: 83 ns  Iteration: 0  Process: /tb_d_latch/p_stimulus  File: C:/Users/micha/Documents/baranek/Digital-electronics/Digital-electronics-1/Labs/07-ffs/flip_flops/flip_flops.srcs/sim_1/new/tb_d_latch.vhd
-Note: Error
-Time: 83 ns  Iteration: 0  Process: /tb_d_latch/p_stimulus  File: C:/Users/micha/Documents/baranek/Digital-electronics/Digital-electronics-1/Labs/07-ffs/flip_flops/flip_flops.srcs/sim_1/new/tb_d_latch.vhd
-Error: Assertion violation
-Time: 563 ns  Iteration: 0  Process: /tb_d_latch/p_stimulus  File: C:/Users/micha/Documents/baranek/Digital-electronics/Digital-electronics-1/Labs/07-ffs/flip_flops/flip_flops.srcs/sim_1/new/tb_d_latch.vhd
-Note: Error
-Time: 563 ns  Iteration: 0  Process: /tb_d_latch/p_stimulus  File: C:/Users/micha/Documents/baranek/Digital-electronics/Digital-electronics-1/Labs/07-ffs/flip_flops/flip_flops.srcs/sim_1/new/tb_d_latch.vhd
+Note: Stimulus process started
+Time: 0 ps  Iteration: 0  Process: /tb_t_ff_rst/p_stimulus  File: C:/Users/micha/Documents/baranek/Digital-electronics/Digital-electronics-1/Labs/07-ffs/flip_flops/flip_flops.srcs/sim_1/new/tb_t_ff_rst.vhd
+Note: Stimulus process finished
+Time: 309 ns  Iteration: 0  Process: /tb_t_ff_rst/p_stimulus  File: C:/Users/micha/Documents/baranek/Digital-electronics/Digital-electronics-1/Labs/07-ffs/flip_flops/flip_flops.srcs/sim_1/new/tb_t_ff_rst.vhd

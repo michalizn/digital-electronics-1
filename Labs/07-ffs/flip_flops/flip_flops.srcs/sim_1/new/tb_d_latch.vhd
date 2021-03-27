@@ -25,27 +25,36 @@ begin
     p_reset_gen : process
         begin
             s_arst <= '0';
-            wait for 10ns;
+            wait for 24ns;
             
             s_arst <= '1';
-            wait for 20ns;
+            wait for 85ns;
          
             s_arst <= '0';
-            wait for 100ns;
+            wait for 88ns;
+            
+            s_arst <= '1';
+            wait for 5 ns;
+            
+            s_arst <= '0'; 
+            wait for 8 ns; 
+            
+            s_arst <= '1';       
+            wait;
            
         end process p_reset_gen;
                 
     p_stimulus : process 
         begin
-            s_en <= '0';
-            s_d <=  '0';           
-                       
+            s_en <=  '1';
+            
+            s_d  <=  '1';                                  
             wait for 10ns;
             s_d <= '1';          
             wait for 10ns;
             s_d <= '0';          
             wait for 10ns;
-            s_d <= '0';        
+            s_d <= '1';        
             wait for 10ns;
             s_d <= '0';           
             wait for 10ns;
@@ -53,35 +62,55 @@ begin
             wait for 10ns;
             s_d <= '0';            
             wait for 10ns;
-            s_d <= '0';            
+            s_d <= '1';            
             wait for 10ns;
-            s_d <= '1';
+            s_d <= '0';
             
-            s_en <= '1';
-            
-            wait for 3 ns;
-            assert(s_q = '0' and s_q_bar = '1');
+            assert(s_q = '0' and s_q_bar = '1')
             report "Error" severity note;
             
-            wait for 47ns;
+            s_en <= '0';
+            wait for 25ns;
+                    
+            wait for 10ns;
             s_d <= '1';          
-            wait for 50ns;
+            wait for 10ns;
             s_d <= '0';          
-            wait for 50ns;
+            wait for 10ns;
             s_d <= '1';        
-            wait for 50ns;
-            s_d <= '0'; 
-            wait for 50ns;
+            wait for 10ns;
+            s_d <= '0';           
+            wait for 10ns;
             s_d <= '1';            
-            wait for 50ns;
-            s_d <= '0';     
+            wait for 10ns;
+            s_d <= '0';            
+            wait for 10ns;
+            s_d <= '1';            
+            wait for 10ns;
+            s_d <= '0';
+            
+            assert(s_q = '0' and s_q_bar = '1')
+            report "Error" severity note;
             
             s_en <= '1';
-                   
-            wait for 50ns;
+            
+            wait for 10ns;
+            s_d <= '1';          
+            wait for 10ns;
+            s_d <= '0';          
+            wait for 10ns;
+            s_d <= '1';        
+            wait for 10ns;
+            s_d <= '0';           
+            wait for 10ns;
             s_d <= '1';            
-            wait for 50ns;
+            wait for 10ns;
+            s_d <= '0';            
+            wait for 10ns;
+            s_d <= '1';            
+            wait for 10ns;
             s_d <= '0';
+            wait;
             
         end process p_stimulus;
 
