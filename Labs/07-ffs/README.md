@@ -516,3 +516,4 @@ p_stimulus : process
 ## 4. Shift register
 
 #### Image of the shift register schematic:
+![pic](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/07-ffs/Images/Untitled.png)
