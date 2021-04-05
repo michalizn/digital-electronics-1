@@ -137,4 +137,13 @@ p_output_fsm : process(s_state)
     end process p_output_fsm;
 ```
 #### Screenshot(s) of the simulation, from which it is clear that controller works correctly:
+![waveforms]()
+
+## 3. Smart controller
+
+#### State table:
+
+#### State diagram:
+
+#### Listing of VHDL code of sequential process p_smart_traffic_fsm with syntax highlighting:
 
