@@ -113,6 +113,33 @@ p_traffic_fsm : process(clk)
     end process p_traffic_fsm;
 ```
 #### Listing of VHDL code of combinatorial process `p_output_fsm` with syntax highlighting:
-
+```vhdl
+p_output_fsm : process(s_state)
+    begin
+        case s_state is
+            when STOP1 =>
+                south_o <= c_RED;
+                west_o  <= c_RED;
+            when WEST_GO =>
+                south_o <= c_RED;
+                west_o  <= c_GREEN;
+            when WEST_WAIT =>
+                south_o <= c_RED;
+                west_o  <= c_YELLOW;
+            when STOP2 =>
+                south_o <= c_RED;
+                west_o  <= c_RED;
+            when SOUTH_GO =>
+                south_o <= c_GREEN;
+                west_o  <= c_RED;
+            when SOUTH_WAIT =>
+                south_o <= c_YELLOW;
+                west_o  <= c_RED;
+            when others =>
+                south_o <= c_RED;
+                west_o  <= c_RED;
+        end case;
+    end process p_output_fsm;
+```
 #### Screenshot(s) of the simulation, from which it is clear that controller works correctly:
 
