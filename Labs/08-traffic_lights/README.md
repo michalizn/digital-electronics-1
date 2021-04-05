@@ -143,6 +143,25 @@ p_output_fsm : process(s_state)
 
 #### State table:
 
+| States              | Input | Next state          | Output |
+| ------------------- | ----- | ------------------- | ------ |
+| WEST_GO (001100)    | 00    | WEST_GO (001100)    | 001100 |
+| WEST_GO (001100)    | 01    | WEST_GO (001100)    | 001100 |
+| WEST_GO (001100)    | 10    | WEST_WAIT (010100)  | 010100 |
+| WEST_GO (001100)    | 11    | WEST_WAIT (010100)  | 010100 |
+| WEST_WAIT (010100)  | 00    | SOUTH_GO (100001)   | 100001 |
+| WEST_WAIT (010100)  | 01    | SOUTH_GO (100001)   | 100001 |
+| WEST_WAIT (010100)  | 10    | SOUTH_GO (100001)   | 100001 |
+| WEST_WAIT (010100)  | 11    | SOUTH_GO (100001)   | 100001 |
+| SOUTH_GO (100001)   | 00    | SOUTH_GO (100001)   | 100001 |
+| SOUTH_GO (100001)   | 01    | SOUTH_GO (100001)   | 100001 |
+| SOUTH_GO (100001)   | 10    | SOUTH_WAIT (100010) | 100010 |
+| SOUTH_GO (100001)   | 11    | SOUTH_WAIT (100010) | 100010 |
+| SOUTH_WAIT (100010) | 00    | WEST_GO (001100)    | 001100 |
+| SOUTH_WAIT (100010) | 01    | WEST_GO (001100)    | 001100 |
+| SOUTH_WAIT (100010) | 10    | WEST_GO (001100)    | 001100 |
+| SOUTH_WAIT (100010) | 11    | WEST_GO (001100)    | 001100 |
+
 #### State diagram:
 
 #### Listing of VHDL code of sequential process p_smart_traffic_fsm with syntax highlighting:
