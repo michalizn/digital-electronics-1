@@ -164,10 +164,10 @@ p_output_fsm : process(s_state)
 
 #### State diagram:
 
-![diagram]()
+![diagram](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/08-traffic_lights/Images/Untitled2.png)
 
 #### Listing of VHDL code of sequential process p_smart_traffic_fsm with syntax highlighting:
-
+```vhdl
 p_smart_traffic_fsm : process(clk)
     begin
         if rising_edge(clk) then
@@ -175,7 +175,7 @@ p_smart_traffic_fsm : process(clk)
                 s_state     <= WEST_GO ;      -- Set initial state
                 s_cnt       <= c_ZERO  ;      -- Clear all bits
                 s_sensor    <= c_ZERO  ;
-
+                
             elsif (s_en = '1') then
                 -- Every 250 ms, CASE checks the value of the s_state 
                 -- variable and changes to the next state according 
@@ -237,3 +237,4 @@ p_smart_traffic_fsm : process(clk)
             end if; -- Synchronous reset
         end if; -- Rising edge
     end process p_smart_traffic_fsm;
+```
