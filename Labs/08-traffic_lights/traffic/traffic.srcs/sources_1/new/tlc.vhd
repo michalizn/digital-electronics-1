@@ -9,8 +9,7 @@ entity tlc is
     port(
         clk     : in  std_logic;
         reset   : in  std_logic;
-        car_1   : in  std_logic_vector(2 - 1 downto 0);
-        car_2   : in  std_logic_vector(2 - 1 downto 0);
+        sensor  : in  std_logic_vector(2 - 1 downto 0);
         -- Traffic lights (RGB LEDs) for two directions
         south_o : out std_logic_vector(3 - 1 downto 0);
         west_o  : out std_logic_vector(3 - 1 downto 0)
@@ -34,7 +33,9 @@ architecture Behavioral of tlc is
     -- Internal clock enable
     signal s_en     : std_logic;
     -- Local delay counter
-    signal   s_cnt  : unsigned(5 - 1 downto 0);
+    signal s_cnt  : unsigned(5 - 1 downto 0);
+    -- Sensors
+    signal s_sensor : unsigned(2 - 1 downto 0);
 
     -- Specific values for local counter
     constant c_DELAY_4SEC : unsigned(5 - 1 downto 0) := b"1_0000";
@@ -46,7 +47,12 @@ architecture Behavioral of tlc is
     constant c_RED        : std_logic_vector(3 - 1 downto 0) := b"100";
     constant c_YELLOW     : std_logic_vector(3 - 1 downto 0) := b"110";
     constant c_GREEN      : std_logic_vector(3 - 1 downto 0) := b"010";
-
+    
+    constant c_no_car     : unsigned(2 - 1 downto 0) := b"00";
+    constant c_car_W      : unsigned(2 - 1 downto 0) := b"01";
+    constant c_car_S      : unsigned(2 - 1 downto 0) := b"10";
+    constant c_both_car   : unsigned(2 - 1 downto 0) := b"11";
+    
 begin
 
     --------------------------------------------------------------------
@@ -71,12 +77,13 @@ begin
     -- The sequential process with synchronous reset and clock_enable 
     -- entirely controls the s_state signal by CASE statement.
     --------------------------------------------------------------------
-    p_traffic_fsm : process(clk)
+    p_smart_traffic_fsm : process(clk)
     begin
         if rising_edge(clk) then
             if (reset = '1') then       -- Synchronous reset
-                s_state <= WEST_GO ;      -- Set initial state
-                s_cnt   <= c_ZERO  ;      -- Clear all bits
+                s_state     <= WEST_GO ;      -- Set initial state
+                s_cnt       <= c_ZERO  ;      -- Clear all bits
+                s_sensor    <= c_ZERO  ;
 
             elsif (s_en = '1') then
                 -- Every 250 ms, CASE checks the value of the s_state 
@@ -84,15 +91,16 @@ begin
                 -- to the delay value.
                 case s_state is
 
-                    -- If the current state is STOP1, then wait 1 sec
-                    -- and move to the next GO_WAIT state.
-
                     when WEST_GO =>
                         
                         if (s_cnt < c_DELAY_4SEC) then
-                            s_cnt <= s_cnt + 1;
-                        elsif (car_1 <= '00', '01') then
-                            
+                            s_cnt   <= s_cnt + 1;
+                        elsif (s_sensor = c_no_car) then
+                            s_state <= WEST_GO;
+                            s_cnt   <= c_ZERO;
+                        elsif (s_sensor = c_car_W) then
+                            s_state <= WEST_GO;
+                            s_cnt   <= c_ZERO;                                      
                         else
                             s_state <= WEST_WAIT;
                             s_cnt   <= c_ZERO;
@@ -101,7 +109,7 @@ begin
                     when WEST_WAIT =>
                         
                         if (s_cnt < c_DELAY_2SEC) then
-                            s_cnt <= s_cnt + 1;
+                            s_cnt   <= s_cnt + 1;                                      
                         else
                             s_state <= SOUTH_GO;
                             s_cnt   <= c_ZERO;
@@ -110,7 +118,13 @@ begin
                     when SOUTH_GO =>
                         
                         if (s_cnt < c_DELAY_4SEC) then
-                            s_cnt <= s_cnt + 1;
+                            s_cnt   <= s_cnt + 1;
+                        elsif (s_sensor = c_no_car) then
+                            s_state <= SOUTH_GO;
+                            s_cnt   <= c_ZERO;
+                        elsif (s_sensor = c_car_S) then
+                            s_state <= SOUTH_GO;
+                            s_cnt   <= c_ZERO;                                      
                         else
                             s_state <= SOUTH_WAIT;
                             s_cnt   <= c_ZERO;
@@ -119,7 +133,7 @@ begin
                     when SOUTH_WAIT =>
                         
                         if (s_cnt < c_DELAY_2SEC) then
-                            s_cnt <= s_cnt + 1;
+                            s_cnt   <= s_cnt + 1;
                         else
                             s_state <= WEST_GO;
                             s_cnt   <= c_ZERO;
@@ -131,7 +145,7 @@ begin
                 end case;
             end if; -- Synchronous reset
         end if; -- Rising edge
-    end process p_traffic_fsm;
+    end process p_smart_traffic_fsm;
 
     --------------------------------------------------------------------
     -- p_output_fsm:

@@ -143,26 +143,97 @@ p_output_fsm : process(s_state)
 
 #### State table:
 
-| States              | Input | Next state          | Output |
-| ------------------- | ----- | ------------------- | ------ |
-| WEST_GO (001100)    | 00    | WEST_GO (001100)    | 001100 |
-| WEST_GO (001100)    | 01    | WEST_GO (001100)    | 001100 |
-| WEST_GO (001100)    | 10    | WEST_WAIT (010100)  | 010100 |
-| WEST_GO (001100)    | 11    | WEST_WAIT (010100)  | 010100 |
-| WEST_WAIT (010100)  | 00    | SOUTH_GO (100001)   | 100001 |
-| WEST_WAIT (010100)  | 01    | SOUTH_GO (100001)   | 100001 |
-| WEST_WAIT (010100)  | 10    | SOUTH_GO (100001)   | 100001 |
-| WEST_WAIT (010100)  | 11    | SOUTH_GO (100001)   | 100001 |
-| SOUTH_GO (100001)   | 00    | SOUTH_GO (100001)   | 100001 |
-| SOUTH_GO (100001)   | 01    | SOUTH_GO (100001)   | 100001 |
-| SOUTH_GO (100001)   | 10    | SOUTH_WAIT (100010) | 100010 |
-| SOUTH_GO (100001)   | 11    | SOUTH_WAIT (100010) | 100010 |
-| SOUTH_WAIT (100010) | 00    | WEST_GO (001100)    | 001100 |
-| SOUTH_WAIT (100010) | 01    | WEST_GO (001100)    | 001100 |
-| SOUTH_WAIT (100010) | 10    | WEST_GO (001100)    | 001100 |
-| SOUTH_WAIT (100010) | 11    | WEST_GO (001100)    | 001100 |
+| States              | Sensor | Next state          | Output |
+| ------------------- | ------ | ------------------- | ------ |
+| WEST_GO (001100)    | 00     | WEST_GO (001100)    | 001100 |
+| WEST_GO (001100)    | 01     | WEST_GO (001100)    | 001100 |
+| WEST_GO (001100)    | 10     | WEST_WAIT (010100)  | 010100 |
+| WEST_GO (001100)    | 11     | WEST_WAIT (010100)  | 010100 |
+| WEST_WAIT (010100)  | 00     | SOUTH_GO (100001)   | 100001 |
+| WEST_WAIT (010100)  | 01     | SOUTH_GO (100001)   | 100001 |
+| WEST_WAIT (010100)  | 10     | SOUTH_GO (100001)   | 100001 |
+| WEST_WAIT (010100)  | 11     | SOUTH_GO (100001)   | 100001 |
+| SOUTH_GO (100001)   | 00     | SOUTH_GO (100001)   | 100001 |
+| SOUTH_GO (100001)   | 01     | SOUTH_GO (100001)   | 100001 |
+| SOUTH_GO (100001)   | 10     | SOUTH_WAIT (100010) | 100010 |
+| SOUTH_GO (100001)   | 11     | SOUTH_WAIT (100010) | 100010 |
+| SOUTH_WAIT (100010) | 00     | WEST_GO (001100)    | 001100 |
+| SOUTH_WAIT (100010) | 01     | WEST_GO (001100)    | 001100 |
+| SOUTH_WAIT (100010) | 10     | WEST_GO (001100)    | 001100 |
+| SOUTH_WAIT (100010) | 11     | WEST_GO (001100)    | 001100 |
 
 #### State diagram:
 
+![diagram]()
+
 #### Listing of VHDL code of sequential process p_smart_traffic_fsm with syntax highlighting:
 
+p_smart_traffic_fsm : process(clk)
+    begin
+        if rising_edge(clk) then
+            if (reset = '1') then       -- Synchronous reset
+                s_state     <= WEST_GO ;      -- Set initial state
+                s_cnt       <= c_ZERO  ;      -- Clear all bits
+                s_sensor    <= c_ZERO  ;
+
+            elsif (s_en = '1') then
+                -- Every 250 ms, CASE checks the value of the s_state 
+                -- variable and changes to the next state according 
+                -- to the delay value.
+                case s_state is
+    
+                    when WEST_GO =>
+                        
+                        if (s_cnt < c_DELAY_4SEC) then
+                            s_cnt   <= s_cnt + 1;
+                        elsif (s_sensor = c_no_car) then
+                            s_state <= WEST_GO;
+                            s_cnt   <= c_ZERO;
+                        elsif (s_sensor = c_car_W) then
+                            s_state <= WEST_GO;
+                            s_cnt   <= c_ZERO;                                      
+                        else
+                            s_state <= WEST_WAIT;
+                            s_cnt   <= c_ZERO;
+                        end if;
+                    
+                    when WEST_WAIT =>
+                        
+                        if (s_cnt < c_DELAY_2SEC) then
+                            s_cnt   <= s_cnt + 1;                                      
+                        else
+                            s_state <= SOUTH_GO;
+                            s_cnt   <= c_ZERO;
+                        end if;
+                    
+                    when SOUTH_GO =>
+                        
+                        if (s_cnt < c_DELAY_4SEC) then
+                            s_cnt   <= s_cnt + 1;
+                        elsif (s_sensor = c_no_car) then
+                            s_state <= SOUTH_GO;
+                            s_cnt   <= c_ZERO;
+                        elsif (s_sensor = c_car_S) then
+                            s_state <= SOUTH_GO;
+                            s_cnt   <= c_ZERO;                                      
+                        else
+                            s_state <= SOUTH_WAIT;
+                            s_cnt   <= c_ZERO;
+                        end if;
+                    
+                    when SOUTH_WAIT =>
+                        
+                        if (s_cnt < c_DELAY_2SEC) then
+                            s_cnt   <= s_cnt + 1;
+                        else
+                            s_state <= WEST_GO;
+                            s_cnt   <= c_ZERO;
+                        end if;
+    
+                    when others =>
+                        s_state <= WEST_GO;
+    
+                end case;
+            end if; -- Synchronous reset
+        end if; -- Rising edge
+    end process p_smart_traffic_fsm;
