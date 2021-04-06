@@ -168,6 +168,12 @@ p_output_fsm : process(s_state)
 
 #### Listing of VHDL code of sequential process p_smart_traffic_fsm with syntax highlighting:
 ```vhdl
+    constant c_no_car     : unsigned(2 - 1 downto 0) := b"00";
+    constant c_car_W      : unsigned(2 - 1 downto 0) := b"01";
+    constant c_car_S      : unsigned(2 - 1 downto 0) := b"10";
+    constant c_both_car   : unsigned(2 - 1 downto 0) := b"11";
+```
+```vhdl
 p_smart_traffic_fsm : process(clk)
     begin
         if rising_edge(clk) then
