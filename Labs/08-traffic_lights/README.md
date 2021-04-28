@@ -137,7 +137,7 @@ p_output_fsm : process(s_state)
     end process p_output_fsm;
 ```
 #### Screenshot(s) of the simulation, from which it is clear that controller works correctly:
-![waveforms]()
+![waveforms](https://github.com/michalizn/Digital-electronics-1/blob/main/Labs/08-traffic_lights/Images/Capture2.PNG)
 
 ## 3. Smart controller
 
