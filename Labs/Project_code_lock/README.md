@@ -9,7 +9,7 @@
 [Bekeč Alexander](https://github.com/alexander-bekec/Digital-electronics-1)
 
 Odkaz na zložku s projektom: 
-[https://github.com/xbarto0c/Digital-electronics-1/tree/main/Labs/Project_code_lock/DE1_project_code_lock](https://github.com/xbarto0c/Digital-electronics-1/tree/main/Labs/Project_code_lock/DE1_project_code_lock)
+[https://github.com/xbarto0c/Digital-electronics-1/tree/main/Labs/Project_code_lock](https://github.com/xbarto0c/Digital-electronics-1/tree/main/Labs/Project_code_lock)
 
 ### Ciele projektu
 Cieľom projektu bolo navrhnúť terminál pre odomykanie dverí pomocou štvormiestneho PIN kódu. Projekt mal obsahovať tlačidlá pre zadávanie PIN kódu, štyri sedemsegmentové dipleje pre zobrazenie hesla a relé pre ovladanie zámku.
